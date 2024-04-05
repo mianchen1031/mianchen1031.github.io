@@ -1,0 +1,751 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Transitive by TEMPLATED</title>
+		<meta charset="utf-8">
+		<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+		<link rel="stylesheet" href="assets/css/main.css">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>Scrollama: Sticky Side Example</title>
+		<meta name="description" content="Scrollama: Sticky Side Example" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="media/stylemedia.css">
+		<link rel="stylesheet" href="media/asset/iconfont/iconfont.css">
+	    <!--link rel="stylesheet" href="style.css"-->
+
+		<style>
+
+		  #scrolly {
+			position: relative;
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			background-color: #ffffff;
+			padding: 1rem;
+			width:100%;
+
+		  }
+	
+		  #scrolly > * {
+			-webkit-box-flex: 1;
+			-ms-flex: 1;
+			flex: 1;
+		  }
+	
+		  article {
+			position: relative;
+			padding: 0.1rem;
+			width: 10%;
+			left: 5%;
+			right:60%;
+			text-align: left;
+		  }
+	
+		  .sticky-thing {
+			position: -webkit-sticky;
+			position: sticky;
+			width: 80%;
+			margin: 0;
+			background-color: #ffffff00;
+			z-index: 0;
+			top: 20%;
+			height: 75vh;
+			/* Center everything inside */
+			display: flex;
+			align-items:center;
+			justify-content: center;
+			/*background-image:url('my.svg')*/
+		  }
+	
+		  .sticky-thing p {
+			padding: 1rem;
+			font-size: 7rem;
+			font-weight: 800;
+			color: #fff;
+			text-align: left;
+		  }
+	
+		  .step {
+			margin: 0 auto 1rem auto;
+			background-color: #ffffff00;
+			color: #979797;
+			font-size: 1.3rem;
+		  }
+	
+		  .step:last-child {
+			margin-bottom: 0;
+		  }
+	
+		  .step.is-active {
+			background-color: rgba(255, 255, 255, 0);
+			color: #000000;
+			border-radius: 10%;
+			font-size: 1.7rem;
+		  }
+	
+		  .step p {
+			text-align: left;
+			padding: 1rem;
+			
+		  }
+
+		.stackedBarThemeAnnotation {
+			font-family: 'Barlow Condensed';
+			font-weight: 600;
+			
+			text-transform: uppercase;
+			padding: .25rem .05rem;
+			white-space: nowrap;
+			border-radius:1.8rem;
+			cursor: pointer;
+			color: #282828;
+			border: 1px solid #282828;
+		}
+
+		#hover-blue-none {
+			color: #fff;
+			border: 0.2rem solid #107fd3;
+			background: #107fd3;
+			pointer-events: none;
+			border-radius: 0.95rem;
+		}
+		#hover-pink-none {
+			color: #fff;
+			border: 0.2rem solid #ED6B6B;
+			background: #ED6B6B;
+			pointer-events: none;
+			border-radius: 0.95rem;
+		}
+		#hover-green-none {
+			color: #fff;
+			border: 0.2rem solid #00BAAD;
+			background: #00BAAD;
+			pointer-events: none;
+			border-radius: 0.95rem;
+		}
+		#marquee {
+            color: rgb(0, 0, 0);
+            display: block;
+            width: 100%;
+            height: 3rem;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        #marquee_text {
+            position: absolute;
+            top: 0;
+            left: 100%;
+            line-height: 3rem;
+            display: block;
+            word-break: keep-all;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+		.header-skew {
+			position: relative;
+			z-index: 999;
+			width: 1rem;
+			max-width: 4rem;
+		}
+		.header-skew.skew {
+			position: absolute;
+			border-right: 1px solid #ffffff00;
+			background-color: #385bac;
+			width: 10.25rem;
+			max-width: 12.25rem;
+			height: 3rem;
+			left: -1rem;
+			-webkit-transform: skew(-10deg, 0);
+			-ms-transform: skew(-10deg, 0);
+			transform: skew(-10deg, 0);
+		}
+		.valChangeAmt-box{
+				font-size: 2rem;
+				font-weight: bold;
+				line-height: 2rem;
+		}
+		#pic {
+			max-width: 100rem;
+			margin: 1rem auto;
+			text-align: center;
+			left: 6rem;
+			font-size: 2rem;
+			}
+		#intro {
+			max-width: 70rem;
+			margin: 1rem auto;
+			text-align: center;
+			left: 6rem;
+			font-size: 2rem;
+			}
+
+			.intro__hed {
+			font-size: 4rem;
+			margin: 2rem auto 0.5rem auto;
+			}
+			.intro__hed1 {
+			font-size: 2.5rem;
+			margin: 2rem auto 0.5rem auto;
+			}
+			.intro__white{
+				font-size: 3rem;
+			color: #ffffff;
+			text-align: center;
+			}
+			.intro__dek {
+			color: #000000;
+			font-size: 1.4rem;
+			}
+			.middle {
+			color: #000000;
+			font-size: 2rem;
+			}
+			.middlewhite{
+			color: #ffffff;
+			font-size: 2rem;
+			text-align: center;
+			}
+			.padded-dropcap {
+			padding: 0rem -100.25rem 0rem 0rem;
+			float:none;
+			position: relative;
+			top: -.1em;
+			margin: 0rem 0.05rem -1.75rem 1.0rem;
+			font-size:1.5rem;
+			font-family: 'Barlow Condensed';
+			color: #107fd3;
+			font-weight: 900;
+			background-color: #ffffff00;
+			border: 1px solid #ffffff00;
+			-webkit-transform: skew(-10deg, 0);
+			-ms-transform: skew(-10deg, 0);
+			transform: skew(-10deg, 0);
+			line-height: .8;
+			}
+			.padded-dropcapss {
+			padding: 0rem -100.25rem 0rem 0rem;
+			float:none;
+			position: relative;
+			top: -.1em;
+			margin: 0rem 0.05rem -1.75rem 1.0rem;
+			font-size:3rem;
+			font-family: 'Barlow Condensed';
+			color: #107fd3;
+			font-weight: 900;
+			background-color: #ffffff00;
+			border: 1px solid #ffffff00;
+			-webkit-transform: skew(-10deg, 0);
+			-ms-transform: skew(-10deg, 0);
+			transform: skew(-10deg, 0);
+			line-height: .8;
+			}
+			.padded-dropcaps {
+			padding: 0rem -100.25rem 0rem 0rem;
+			float:inline-end;
+			position: relative;
+			top: -.1em;
+			margin: 1rem 0.05rem 1.75rem -100rem;
+			font-size:3rem;
+			font-family: 'Barlow Condensed';
+			color: #107fd3;
+			font-weight: 900;
+			background-color: #ffffff00;
+			border: 1px solid #ffffff00;
+			-webkit-transform: skew(-10deg, 0);
+			-ms-transform: skew(-10deg, 0);
+			transform: skew(-10deg, 0);
+			line-height: .8;
+			}
+			.padded-dropcap1{
+			font-size:1.7rem;
+			color: #2469E0;
+			}
+			.padded-dropcap2{
+			font-size:1.7rem;
+			color: #FF6283;
+			}
+			.padded-dropcap3{
+			font-size:1.7rem;
+			color: #1AA7EE;
+			}
+					.lollipopTextbutton {
+			color: #282828;
+			font-weight: 600;
+			font-family: 'Barlow Condensed';
+			font-size: 1rem;
+			background-color: #ffffff;
+			
+			white-space: nowrap;
+			border-radius: 1.25rem;
+			border: 0.2rem solid #5358b6;
+			height: 1.9rem;
+			margin: .025rem 0;
+			padding: .125rem .5rem;
+			line-height:1rem;
+		}.lollipopTextbutton-active {
+			color: #282828;
+			font-weight: 600;
+			font-family: 'Barlow Condensed';
+			font-size: 1rem;
+			background-color: #5358b6;
+			border: 0.2rem solid #5358b6;
+			
+			white-space: nowrap;
+			border-radius: 1.25rem;
+			pointer-events: none;
+			height: 1.9rem;
+			margin: .025rem 0;
+			padding: .125rem .5rem;
+			line-height:1rem;
+		}
+		button {
+			margin: 1rem;
+			padding: 0;
+			border: none;
+			cursor: pointer;
+			font-size: 1rem
+		}		
+		.lollipopTextbutton:hover {
+			background-color: #5358b6;
+			color: #282828;
+			font-weight: 600
+		}
+		.left {
+        float: left;
+		margin-left: 15rem;
+		margin-top: 10rem;
+        width: 30rem;
+        height: 10rem;
+        background-color: rgb(255, 255, 255);
+      }
+      .right {
+        background-color: rgb(255, 255, 255);
+        margin-left: 40rem;
+        height: 30rem;
+      }
+	  .left1 {
+        float: left;
+		margin-left: 10rem;
+		margin-top: 0rem;
+        width: 40rem;
+        height: 35rem;
+        background-color: rgb(255, 255, 255);
+      }
+      .right1 {
+        background-color: rgb(255, 255, 255);
+        margin-left: 55rem;
+		margin-top: 10rem;
+        height: 25rem;
+		width: 30rem;
+      }
+	  #lefttext{
+			max-width: 70rem;
+			margin: 1rem auto;
+			text-align: left;
+			left: 100rem;
+			font-size: 1.5rem;
+			}
+		</style>
+	</head>
+	<body>
+
+		<!-- Header -->
+			<header id="header" class="alt">
+				<div class="logo"><p>School of Communication</p> 
+				<!--div class="logo">School of Communication <br />
+				<span> School of Communication</span--></div>
+					<div class="logo1"><p>Department of Journalism</p> </div>
+				<a href="#menu" class="toggle"><span>Menu</span></a>
+			</header>
+			<!-- Nav -->
+			<nav id="menu"><ul class="links">
+				<li><a href="#home">Home</a></li>
+				<li><a href="#deepfake">政治深度伪造</a></li>
+				<li><a href=#senti>舆论情感</a></li>
+				<li><a href="#measure">应对措施</a></li>
+				</ul></nav>
+
+
+		<section id="banner" data-video="images/banner"><div class="inner"><a name="home"></a>
+					<h1>虚假信息的洪流:</h1>
+					<h1>美国大选中的政治深度伪造</h1>
+					<p>A Visual data journalism of deepfake and election<br>
+					built by <a href="https://cn.bing.com">JiaQi Chen</a> and released under the <a href="https://cn.bing.com">ECNU</a>.</p>
+					<a href="#intro" class="button special scrolly">Go on</a>
+				</div>
+			</section>
+			<div class="header-skew">
+				<div class="skew"></div>
+				</div>
+			<div id="marquee">
+				<span id="marquee_text"> 2023年4月25日，美国共和党全国委员会在总统拜登宣布竞选连任后公布了一段AI视频，描绘了假如拜登连任后的世界末日景象；
+					6月6日佛罗里达州州长罗恩·德桑蒂斯也利用AI合成图像发布了前总统特朗普和前卫生官员安东尼·福奇博士亲密拥抱的虚假照片（如下）。</span>
+			</div>
+			<script type="text/javascript">
+				marquee("marquee", "marquee_text");
+			
+				function marquee(p, s) {
+					var scrollWidth = document.getElementById(p).offsetWidth;
+					var textWidth = document.getElementById(s).offsetWidth;
+					var i = scrollWidth;
+					console.log(scrollWidth, textWidth);
+			
+					function change() {
+						i--;
+						if (i < -textWidth) {
+							i = scrollWidth;
+						}
+						document.getElementById(s).style.left = i + "px";
+						window.requestAnimationFrame(change);
+					}
+					window.requestAnimationFrame(change);
+				}
+			</script>
+		
+				<section id="intro">
+				  <h1 class="intro__hed">📞</h1><a name="deepfake"></a>
+				  <p class="intro__dek"><span class="padded-dropcap">如果你接到这样一通电话，对方的声音听起来几乎和总统拜登一模一样</span>，他在电话里说：<br><span class="padded-dropcapss">“</span>共和党人一直试图推动无党派和民主党选民参加初选。真是一堆坏蛋.......因此你要把你的选票留给11月的选举，我们需要您来帮助民主党人，而本周二的投票只会让共和党人再次选举特朗普......
+					<span class="padded-dropcaps">”</span><br>你会心生疑虑，还是毫无察觉地选择相信？<br>👇点击播放按钮▶️接听电话
+				</p><p></p>
+				
+				
+				<iframe id="myiframe1" src="mac-music-player-master/mediaplay.html" scrolling="no"></iframe>
+				<script>
+				var iframe1 = document.getElementById("myiframe1");
+				iframe1.width = iframe1.contentWindow.document.body.scrollWidth*2.2;
+				iframe1.height = iframe1.contentWindow.document.body.scrollHeight*2.2;
+			</script>
+
+				<p class="intro__dek">这是今年1月末美国新罕布什尔州的选民真实经历的深度伪造制作的音频电话(robocall)。据Nomorobo的数据显示，估计受到伪造音频影响的受众数量在5,000到25,000之间。而这并不是深度伪造第一次干预选民投票。</p>
+
+				<p class="intro__dek"><span class="stackedBarTextAnnotation" value="深度伪造（deepfake）" hovertype="inTextHover" id="hover-blue-none">深度伪造(deepfake)</span><br><br>一词由深度学习（deep learning）和伪造（fake）合成而来，它通过使用人工智能的算法技术，进行自动化的智能生产，操纵和修改数据以实现媒体的传播行为。<br>去年四月，深度伪造就已在24年美国大选的政治舞台上粉墨登场。
+				
+				</section>
+
+				<iframe id="myiframe2" src="spotify-master/play.html" scrolling="no"></iframe>
+					<script>
+					var iframe2 = document.getElementById("myiframe2");
+					iframe2.width = iframe2.contentWindow.document.body.scrollWidth*4.68;
+					iframe2.height = iframe2.contentWindow.document.body.scrollHeight*5;
+				</script>
+<section id="intro">
+				<p class="intro__dek">这种现象在20年大选时还只是在社交平台缓慢渗透，现在已经汇聚成巨大洪流，开始改写全球民主选举的游戏规则。
+				而2024恰逢全球大选年，世界上将有数十亿人参与选举投票。我们将看到从美国到俄罗斯、印度和萨尔瓦多等50多个国家的大选。
+				与此同时，深度伪造的图片及音视频正以前所未有的速度在增长。
+				</p></p><img src="images/分组 1_副本.svg" alt="" width=50% height=50% />
+				  <p class="intro__dek">
+	               在数量上，网络安全公司Home Security Heroes 2023 年的报告显示，在线深度伪造视频总数为&nbsp;<span id="valChangeAmt" class="valChangeAmt-box">0</span> 
+					个，比 2018 年增长 120倍。</p>
+					<img src="images/地图.svg" alt="" width=50% height=50%/>
+				    <p class="intro__dek">在广度上，<br>
+					作者通过事实核查平台和推特社区收集了217条传播范围较广的深度伪造内容，根据深度伪造内容涉及的选举事件或政治人物所在地统计（如下图），目前生产并大范围传播的深度伪造已遍布全球，
+					其中以<span class="padded-dropcap1">美国</span>、<span class="padded-dropcap2">印度</span>、<span class="padded-dropcap3">英法</span>等为最多。
+					</p>	
+					<p class="intro__dek">因此，当数量级的深度伪造图频与真实的信息在网络空间中混杂传播，你有信心辨别其中的真伪吗？英国皇家学会的2023年11月的一项实验显示，在没有提示的情况下，面对深度伪造视频（无偏见内容）的1093个参与者中，79%的个体无法识别出深度伪造视频。</p>
+				</section>
+				<section id="pic">	
+					<iframe id="myiframe" src="brodcast.html" scrolling="no"></iframe>
+						<script>
+						var iframe = document.getElementById("myiframe");
+						iframe.width = iframe.contentWindow.document.body.scrollWidth*4.65;
+						iframe.height = iframe.contentWindow.document.body.scrollHeight*4.65;
+					</script>
+				</section>
+				<section id="intro">
+					<p class="intro__dek">以上所有图片均为midjourney社区中用AI生成的图片，你发现了吗？<br></p>
+					</section>
+
+
+<section id="intro">
+	<p class="intro__dek">
+				由于深度伪造图频的仿真度和生动性，它能够快速并且广泛传播。通过对美国共和党委员会官方账号所有推文的传播数据计算，作者发现深度伪造的传播广度大约是其他推文均值的几十倍(如下图)。</p>
+				<img src="images/曲线.svg" alt="" width=50% height=50%/>
+			</section>
+
+				<section id="intro">
+					<h1 class="intro__hed"><br>那么，这些在社交平台上被疯狂转发的深度伪造🎥都是什么样的图频呢？</h1>
+					<p class="intro__dek">为进一步观察政治深度伪造的内容特点，作者这217条深度伪造内容进行了统计分析。
+					</p> <p></p>
+				  </section>
+						</section>
+
+				  <main2>
+				<section id="scrolly">
+				  <article>
+					<div class="step" data-step="images/扇形1.svg">
+						<p></p><p></p>
+					  <p>在深度伪造的表现形式上，<br>作者发现<span class="stackedBarTextAnnotation" value="人物演讲视频" hovertype="inTextHover" id="hover-pink-none">人物演讲视频</span>占比达到了半数以上，创作者多用AI生成政治人物的伪造音频，并对视频中的人物进行换脸以达到口型一致的效果。根据学者研究，人物出镜讲解的信息表征形式对受众信任度有重要影响。
+						</p><p></p><p></p>
+					</div>
+					<div class="step" data-step='images/扇形2.svg'>
+						<p></p><p></p>
+					  <p>而在选战方式上，百分之九十以上的深度伪造是关于选举的<span class="stackedBarTextAnnotation" value="负面信息" hovertype="inTextHover" id="hover-blue-none">负面信息</span>，其中对政治人物形象人格上的攻击占比超过百分之七十，比如拜登入院、特朗普绯闻等的虚假图片。排在第二的是政策议题，比如特朗普和黑人的虚假合照、正面信息主要以虚假的政治背书和以AI技术
+						<span class="stackedBarTextAnnotation" value="“复活”标志性领导人" hovertype="inTextHover" id="hover-green-none">“复活”标志性领导人</span>为主，比如希拉里支持罗恩的虚假视频和已经去世的印度政治家Karunanidhi的讲话视频。</p>
+					  <p></p><p></p>
+					</div>
+				  </article>
+		  
+				  <div class="sticky-thing">
+					<!--embed src="my.svg" type="image/svg+xml" /-->
+					<img src="images/扇形1.svg" alt="" width=100% height=100% ></div!>
+					<!--a href="my.svg"!-->
+				  </div>
+				</section>
+			  </main2>
+			  <!-- <div class='debug'></div> -->
+			  <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
+			  <script src="https://unpkg.com/scrollama"></script>
+			  <script>
+				// using d3 for convenience
+				var main = document.querySelector("main2");
+				var scrolly = main.querySelector("#scrolly");
+				var sticky = scrolly.querySelector(".sticky-thing");
+				var article = scrolly.querySelector("article");
+				var steps = article.querySelectorAll(".step");
+		  
+				// initialize the scrollama
+				var scroller = scrollama();
+		  
+				// scrollama event handlers
+				function handleStepEnter(response) {
+				  // response = { element, direction, index }
+				  var el = response.element;
+		  
+				  // remove is-active from all steps
+				  // then add is-active to this step
+				  steps.forEach(step => step.classList.remove('is-active'));
+				  el.classList.add('is-active');
+		  
+				  // update graphic based on step
+				  
+				  //sticky.querySelector("p").addClass('logo-black');
+				  //var q="02.svg"
+				  sticky.querySelector("img").src= el.dataset.step
+				  console.log(el.dataset.step)
+				  //p.setAttribute('style', 'fill: green');
+				  //"{el.dataset.step}"
+				  //console.log(el.dataset)
+				  //sticky.querySelector("img")= 
+				}
+				function init() {
+				  scroller
+					.setup({
+					  step: "#scrolly article .step",
+					  offset: 0.7,
+					  debug: false
+					})
+					.onStepEnter(handleStepEnter);
+				  // setup resize event
+				  window.addEventListener("resize", scroller.resize);
+				}// kick things off
+				init();
+			  </script>
+
+<section id="five" class="wrapper style4"><div class="inner">
+	<p class="intro__white" >“Man，this AI/Misinformation finna wreck havoc this election season.If only someone had seen this coming......”</p>
+	<p class="middlewhite">
+		今年1月23日的凌晨五点，一位普通美国公民Chris在推特上发送了这样一段文字，随后点赞量增长到83450人。</p>
+</section>
+<section id="intro">
+	<p class="intro__dek">
+随着深度伪造的泛滥，公众的讨论量也不断上升。公众是否认为深度伪造会影响大选结果？深度伪造的竞选影响力真的比其他宣传方式大吗？谁应当为深度伪造带来的影响负责？为了探索这些问题的答案，作者将对2023年1月至24年1月期间推特平台上有关深度伪造和选举的共72642条推文进行可视化分析。<br>
+通过不同关键词的数量统计，作者发现24年1月23日的bidenrobocall使得与拜登有关的推文在改日大幅增加，每个关键词在23年11月时均出现了增长，作者回溯文本发现大量讨论涉及被AI换脸的娱乐明星，该月受到深度伪造侵害的女性公众人物大量出现，舆情共振引发了对深度伪造和影响选举的热议，“porn”一词在该月出现最多，讨论深度伪造对选举影响的网民会携带明星词条以扩大关注(如下)。
+</p><img src="images/脊线图.svg" alt="" width=50% height=50%/><p class="intro__dek"><br>—————————&nbsp;比如，用户Darshan Rana,mirror now,CNNnews18这样写道🗣️：—————————</p>
+</section>
+<section id="two" class="wrapper style3"><div class="inner">
+	<div id="flexgrid">
+		<div>
+			<header><h3>CNNnews18</h3>
+			</header><p>在#DeepFake的愤怒中，Meta宣布将采取措施，披露Facebook或Instagram等平台上的社会问题、选举或政治广告何时被“数字创建或修改”，或使用AI@ibhaveshsharma #RajeevChandrasekhar #RashmikaMandanna #KatrinaKaif</p>
+			<ul class="actions"><li><a href="https://twitter.com/CNNnews18/status/1722947305383588065" class="button alt">View tweets</a></li>
+			</ul></div>
+		<div>
+			<header><h3>mirror now</h3>
+			</header><p>#Deepfakes:灯光、相机、骗局!🔴政府是如何应对深度造假威胁的?@ShreyaOpines在#BeyondTheHeadline上问Ajai Garg博士，听听Garg博士是怎么说的!#KatrinaKaif #RashmikaMandanna https://t.co/W1rc62UIbr </p>
+			<ul class="actions"><li><a href="https://twitter.com/MirrorNow/status/1722296171983499297" class="button alt">View tweets</a></li>
+			</ul></div>
+		<div>
+			<header><h3>Darshan Rana</h3>
+			</header><p>“这种深度造假没有被相关人士或社区标记，因此它在网络上传播。难怪，我们的下一代将面临这样的网络地狱🙃#rashmikamandanna #deepfake #病毒#viralreels #安全推特”</p>
+			<ul class="actions"><li><a href="https://twitter.com/yours_darsh/status/1721223962204819726" class="button alt">View tweets</a></li>
+			</ul></div>
+	</div><a name="senti"></a>
+</div></section>
+<section id="intro">
+	<h1 class="intro__hed">公众对deepfake有怎样的情绪🧠呢</h1>
+	<p class="intro__dek">
+Chris连续使用了“wreck(毁坏)”、“ havoc(严重破坏)”两个情绪色彩极强的单词表达自己的担忧，面对随处可见的“深度伪造将危害民主选举”的新闻标题和相关词条，公众对此的情绪感知是怎样的？
+作者对包含选举、深度造假等关键词的推特文本进行情感分析得到时间变化图，从而进一步获知舆论情况。
+	</p>
+</section>
+
+<div class="left">
+  <div id="lefttext">
+	<p>
+		可以发现从2023年开始，随着大选年的临近，公众的情感变化越来越激烈，呈现极化趋势，其中负面情绪不断增长直至超过正面情绪。
+			</p>
+		</div></div>
+<div class="right">
+	<img src="images/折线图.svg" alt=""  width=90% height=90%/>
+</div>
+
+<div class="left1">
+		<img src="images/其他.svg" alt=""  width=100% height=100%/>
+	</div>
+  <div class="right1">
+	<div id="lefttext">
+		<p>
+			而据美国皮尤研究中心的民意调查，个人对深度伪造的认知水平受到学历水平和关注程度的影响，近一半的调查对象表示会因此减少新闻摄入量来避免接收错误信息，而大部分人都认为深度伪造会增加虚假信息的传播，影响公众对政府的信心，并应采取措施限制深度伪造。
+				</p>
+			</div>
+  </div>
+
+
+
+<section id="intro">
+	
+		<h1 class="intro__hed">那么，公众的负面情绪都是从何而来呢？</h1><p class="intro__dek">
+作者首先对文本进行词频统计，然后通过NRC情绪词典对词云中的单词进行情感分类得到了舆论词云图（如下），
+单词颜色代表该单词在情绪词典中得分最高的情绪。可以发现，信任和不信任类的相关情绪词占据百分之五十以上，
+其中“信任”、“令人信服的”、“令人失望的”、“信用”、“政策”、“法律”、“政府管理”等词频率最高。而愤怒类的情绪词达到百分之三十，舆论通过“欺诈”、“破环”、“威胁”、“误导”、“惩治”等词表达了对深度伪造的不安情绪。
+</p><img src="images/词云.svg" alt="" width=50% height=50%/>
+</section>
+
+
+    <section id="intro">
+				<p class="intro__dek">
+					为进一步呈现舆论主要观点，作者对情绪词云图中的高频词进行词共现处理(如下图)。</p>
+			<h1 class="intro__hed">高频词🔁词共现图</h1>
+			
+			
+			<iframe scrolling="no" frameborder="0" title="Interactive or visual content" sandbox="allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation" src="https://flo.uri.sh/visualisation/17417855/embed?auto=1" style="width: 100%; height: 1099.984px;"></iframe>
+			
+			
+			
+			<p class="intro__dek"><br>—————————&nbsp;一名纽约的艺术家LouieCRhymes在twitter上写道✍️：—————————<br>“Get ready for manipulation of the masses, AI generated ‘evidence’, and the complete inability to trust anything you hear or see on your screen.💔”。</p>
+		</section>
+
+
+		<section id="two" class="wrapper style5"><div class="inner">
+			<div id="flexgrid">
+				<div>
+					<header><h3>• 民主危机与深度伪造技术的武器化 •</h3>
+					</header><p>拥有三万粉丝的AI图片创作博主SeekingAnon发起了这样的投票："If you learned that AI was weaponized against the masses to spread propaganda and disinformation in the form of News while dividing people to set them up for self destruction along with stealing a national election.Would you still want “Good” AI if it was introduced?"选举与民主，担忧与武器化、透明性之间的高频线条也显露出舆论担忧深度伪造在政党或利益集团之间斗争中的武器化可能危害民主。</p>
+					<ul class="actions"><li><a href="#" class="button alt">View tweets</a></li>
+					</ul></div>
+				<div>
+					<header><h3>• “不敢相信屏幕上的任何事物” • </h3>
+					</header><p>信任情绪词中的信心与忧虑和减弱、社交媒体、政府、川普等词同时出现的频率较高。深度伪造不一定让大部分人相信虚假信息，但却有可能导致了公众对社交媒体或政治人物的信任程度下降。政治传播学者Cristian Vaccari曾提出深度伪造的累积效应可能导致网络信息空间系统性的不确定状态，公众由此放弃在混乱中寻找任何真相，从而使政客能够转移指控。法学教授鲍比·切斯尼将其称为骗子红利（the liar's dividend），政治人物可能会利用深度造假逃避对实际行为的问责。</p>
+					<ul class="actions"><li><a href="#" class="button alt">View tweets</a></li>
+					</ul></div>
+
+				<div>
+					<header><h3>• 谁是监管深度伪造的责任主体？ • </h3>
+					</header><p>与措施一词关系最紧密的是政府，舆论希望政府能尽快通过政策减弱深度伪造的危害，发挥管理职能，其次出现的是科技公司，例如OpenAI、Meta等。而PRC民调显示，超过一半的美国人认为新闻媒体在减少深度造假方面负有最大责任，其次是公众、科技公司和政府，该平台的舆论情况与民调结果基本一致。</p>
+					<ul class="actions"><li><a href="#" class="button alt">View tweets</a></li>
+					</ul></div>
+			</div>
+		</div></section>
+		
+		<section id="intro">
+			<img src="images/饼图.svg" alt="" width=50% height=50%/>
+			<h1 class="intro__hed">应对深度伪造的集体性努力💡</h1><a name="measure"></a>
+			<p class="intro__dek">	新闻媒体的内容审核是深度伪造内容到达大众视野的最后一道防线，众多社交平台都做出了尝试。</p>
+<p class="intro__dek">
+去年5月，推特扩展了社区笔记功能，允许用户在推特的照片和视频旁添加笔记，以标记被篡改和伪造的图像，旨在利用无偿的众包事实核查来对抗深度伪造的虚假信息。作者对推特社区数据库2021年至2024年的647422条标记进行统计，其中认为图频被AI篡改和理由中包含了选举的标记在四年内增长了150倍（如下图）。</p>
+<iframe scrolling="no" frameborder="0" title="Interactive or visual content" sandbox="allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation" src="https://flo.uri.sh/visualisation/17083935/embed?auto=1" style="width: 100%; height: 650px;"></iframe>
+
+<p class="intro__dek">
+但众包事实核查的方式一直受到质疑，普通用户并不一定具有准确分辨深度伪造图频的能力。推特在众包后甚至裁减了专业内容审核团队，使得深度伪造的平台限制进一步减弱。除此以外，新闻媒体在推特上也不断传播深度伪造的科普信息。作者通过统计发推用户的平台认证信息，发现显示身份信息的用户中媒体占比达到百分之六十二。排在第二的是众多技术公司。</p>
+
+<iframe scrolling="no" frameborder="0" title="Interactive or visual content" sandbox="allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation" src="https://flo.uri.sh/visualisation/17148689/embed?auto=1" style="width: 100%; height: 1069px;"></iframe>
+
+</section>
+
+
+<section id="intro">
+<h1 class="intro__hed">模拟生成政治深度伪造实验</h1>
+<p class="intro__dek">
+	面对众多的AI生成平台，如果我们输入一条“请帮我生成一张躺在医院里的拜登图片”的提示词，能成功吗？</p><p class="intro__dek">
+	今年3月，英国反数字仇恨中心CCDH的研究人员通过在各大生成器上使用40 个prompt，并重复 160次来测试各文生图平台的深度伪造情况。这40个提示词围绕美国总统候选人和操纵选举两个主题，还使用常见的“越狱”技术来试图绕过创建误导性图像的任何潜在限制。
+</p><h1 class="intro__hed1">各平台生成政治深度伪造测试·桑基图</h1>
+<iframe scrolling="no" frameborder="0" title="Interactive or visual content" sandbox="allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation" src="https://flo.uri.sh/visualisation/17091221/embed?auto=1" style="width: 100%; height: 763.664px;"></iframe>
+<p class="intro__dek">
+结果显示超过一半的指令成功生成了虚假的选举照片，其中Midjourney最有可能生成选举相关的深度伪造图片，而ChatGPT Plus(DALL-E 3)和Microsoft的Image Creator成功地拦截了所有与候选人相关的图像。</p>
+</section>
+
+
+
+
+<p></p>
+<section id="intro">
+<p class="intro__dek">根据各生成器官网显示的服务条款，各平台都禁止生成误导性图片，其中除DreamStudio以外的三个平台都申明了不得使用服务为政治竞选活动生成图像，或试图影响选举结果，而ChatGPT则特别禁止生成包括政治人物在内的公众人物图片。今年2月，Midjourney的CEO霍尔茨也在彭博社采访中提议禁止生成拜登和特朗普等人的照片以应对即将到来的美国总统大选。除此以外，OpenAI等公司也致力于研究AI生成内容的水印技术。在政府方面，虽然没有联邦法律禁止深度伪造，但美国有10个州颁布了将其定为刑事犯罪的法规。
+</p>
+</section>
+
+
+		<section id="four" class="wrapper style3"><div class="inner">
+
+					<header class="align-center"><h2>FUTURE<br>
+						
+							以上，我们可以看到各群体为维护民主进程的完整性而做出的集体性努力，但深度伪造对24大选的影响仍不可预估，需要更多的管控力来限制人工智能的潘多拉魔盒。</p>
+						</h2>
+					</header></div>
+			</section><!-- Footer --><div class="copyright">
+				注释：<br>
+				【1】深度伪造信息受众信任行为的影响因素研究 逯前前 天津师范大学<br>
+				【2】数字外交中的深度伪造研究 对外经济贸易大学国际关系学院教授 董青岭<br>
+				网页图片：均来源于网络🛜<br>
+				<a href="https://">mianchen</a>.
+			</div>
+		</body>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script><script src="assets/js/jquery.scrolly.min.js"></script><script src="assets/js/jquery.scrollex.min.js"></script><script src="assets/js/skel.min.js"></script><script src="assets/js/util.js"></script><script src="assets/js/main.js"></script>
+			
+			<script>
+				// 动态变化
+				// 将数字转换为逗号隔开的千分位格式
+				function num2qfw(num){
+					num += '';
+					if (!num.includes('.')) num += '.';
+					return num.replace(/(\d)(?=(\d{3})+\.)/g, function($0, $1) {
+						return $1 + ',';
+					}).replace(/\.$/, '');
+				}
+			
+				// 数值改变动画函数
+				function magic_number(value) {
+					
+					var num = $("#valChangeAmt");
+					num.animate({count: value}, {
+						duration: 5000, 
+						step: function() {
+							num.text(num2qfw(parseInt(this.count)));
+						},
+						complete: function () {
+							num.text(num2qfw(parseInt(value)));
+						}
+					}); 
+				};
+				let oldVal = 95820
+				//magic_number(oldVal);
+				function update() {
+					magic_number(oldVal);
+					ran= random()
+					oldVal += ran
+					
+				}
+				update()
+		
+
+				setInterval(update,3000000); //3秒钟执行一次 update();
+			
+			</script>
+		
+		</html>
