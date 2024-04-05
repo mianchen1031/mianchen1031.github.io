@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=600%, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./asset/iconfont/iconfont.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="music-player-wrapper">
+        <div class="music-player">
+            <audio src="./asset/music/music-1.mp3" id="audio"></audio>
+            <div class="top-bar">
+                <span class="iconfont icon-24gl-volumeMiddle"></span>
+                <div class="progress-bar sound-progress-bar">
+                    <span class="duration-bar sound-duration"></span>
+                    <span class="progress sound-progress">
+                        <span class="round"></span>
+                    </span>
+                </div>
+                <span class="iconfont icon-sousuo"></span>
+            </div>
+            <div class="music-info">
+                <div class="info-left">
+                    <img class="music-img" src="./asset/music/music-1.jpg" alt="">
+                </div>
+                <div class="info-right">
+                    <div class="music-name">
+                        <span class="name">Biden robocall</span>
+                        <span class="musician">CNN Mon January 22, 2024</span>
+                    </div>
+                    <div class="playback-setting">
+                        <span class="iconfont icon-next previous"></span>
+                        <span class="iconfont icon-bofang"></span>
+                        <span class="iconfont icon-zanting1"></span>
+                        <span class="iconfont icon-next next"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="progress-bar player-progress-bar">
+                <span class="duration-bar play-duration"></span>
+                <span class="progress player-progress"></span>
+                <span class="time">03:22</span>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    //dom 元素
+    const audio = document.getElementById('audio')
+    const playBtn = document.querySelector('.icon-bofang')
+    const zanTingBtn = document.querySelector('.icon-zanting1')
+    const previousBtn = document.querySelector('.previous')
+    const nextBtn = document.querySelector('.next')
+    const playerProgress = document.querySelector('.player-progress')
+    const timeStr = document.querySelector('.time')
+    const playDurationBar = document.querySelector('.play-duration')
+    const soundDuration = document.querySelector('.sound-duration')
+    const soundProgress = document.querySelector('.sound-progress')
+    const round = document.querySelector('.round')
+    const playerProgressBar = document.querySelector('.player-progress-bar')
+    const soundProgressBar = document.querySelector('.sound-progress-bar')
+    const musicImg = document.querySelector('.music-img')
+    const musician = document.querySelector('.musician')
+    const musicName = document.querySelector('.name')
+
+    //变量
+    let duration, nowPlayIndex = 0
+    const musicList = [{
+        musicSrc: './asset/music/music-1.mp3',
+        musicPic: './asset/music/music-1.jpg',
+        musician: 'Daniel Powter',
+        musicName: 'Free Loop'
+    },
+    {
+        musicSrc: './asset/music/music-2.mp3',
+        musicPic: './asset/music/music-2.jpg',
+        musician: 'The Chainsmokers/Halsey/R3HAB',
+        musicName: 'Closer',
+    },
+    {
+        musicSrc: './asset/music/music-3.mp3',
+        musicPic: './asset/music/music-3.jpg',
+        musician: 'ILLENIUM,Nevve',
+        musicName: 'Fractures',
+    }]
+
+    // 处理时间显示进度条
+    function timeAndProgress() {
+        playerProgress.style.width = audio.currentTime / audio.duration * 100 + '%'
+        let time = audio.duration - audio.currentTime
+        let minue = parseInt(time / 60)
+        let second = parseInt(time % 60)
+        let str = `${minue < 10 ? '0' + minue : minue}:${second < 10 ? '0' + second : second}`
+        timeStr.innerHTML = str
+    }
+
+    // 设置播放的音乐和图片
+    function setMusic(index) {
+        musicImg.src = musicList[index].musicPic
+        audio.src = musicList[index].musicSrc
+        musician.innerHTML = musicList[index].musician
+        musicName.innerHTML = musicList[index].musicName
+        playMusic()
+    }
+
+    // 播放音乐
+    function playMusic() {
+        audio.play()
+        playBtn.style.display = 'none'
+        zanTingBtn.style.display = 'block'
+    }
+
+    // 暂停音乐
+    function pauseMusic() {
+        audio.pause()
+        playBtn.style.display = 'block'
+        zanTingBtn.style.display = 'none'
+    }
+
+  
+
+    // 加载完MP3需要设置时间显示与进度条监听
+    audio.addEventListener("canplay", function() {
+        duration = audio.duration
+        setInterval(function() {
+            timeAndProgress()
+        }, 1000)
+    })
+
+    // 播放完毕监听事件（下一首）
+    audio.addEventListener("ended", function() {
+        nextMusic()
+    })
+
+    // 点击进度条更改播放进度
+    playerProgressBar.addEventListener("click", function(e) {
+        audio.currentTime = e.offsetX / this.offsetWidth * duration
+        timeAndProgress()
+    })
+
+    // 点击声音条更改声音大小
+    soundDuration.addEventListener('click', function (e) {
+        audio.volume = e.offsetX / this.offsetWidth
+        soundProgress.style.width = e.offsetX / this.offsetWidth * 100 + '%'
+    })
+
+    // 声音拖动
+    round.addEventListener('mousedown', function() {
+        let soundBarLength = soundProgressBar.offsetWidth
+
+        // 鼠标移动
+        document.onmousemove = function(ev) {
+            let myEvent = ev || event
+            let disX = myEvent.clientX - soundProgressBar.getBoundingClientRect().left
+            if(disX > soundBarLength) {
+                disX = soundBarLength
+            } else if(disX == 0){
+                disX = 0
+            }
+            soundProgress.style.width = disX / soundBarLength * 100 + '%'
+            audio.volume = disX /soundBarLength
+        }
+
+        // 鼠标抬起
+        document.onmouseup = function() {
+            document.onmousemove = null
+            document.onmouseup = null
+        }
+    })
+
+    // 播放
+    playBtn.addEventListener('click', function() {
+        playMusic()
+    })
+
+    // 暂停
+    zanTingBtn.addEventListener('click', function() {
+        pauseMusic()
+    })
+
+    // 上一首歌
+    previousBtn.addEventListener('click', function() {
+        previousMusic()
+    })
+
+    // 下一首歌
+    nextBtn.addEventListener('click', function() {
+        nextMusic()
+    })
+</script>
+
+</html>
