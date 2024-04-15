@@ -21,6 +21,7 @@
 
 	article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
 		display: block;
+		width: 100%;
 	}
 
 	body {
@@ -3327,6 +3328,7 @@
 			.wrapper.style3 .inner {
 				position: relative;
 				z-index: 2;
+				width: 90%;
 			}
 
 			.wrapper.style3:before {
@@ -3571,6 +3573,7 @@
 			.wrapper.style5 .inner {
 				position: relative;
 				z-index: 2;
+				width: 90%;
 			}
 			
 			.wrapper.style5:before {
