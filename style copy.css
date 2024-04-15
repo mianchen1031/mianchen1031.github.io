@@ -86,6 +86,7 @@ body {
 }
 
 #banner .img-wrapper .img-box .info {
+  font: 'Helvetica Neue';
   position: absolute;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -104,7 +105,12 @@ body {
   background: rgba(23, 23, 23, 0.5);
   text-align: center;
   color: #fff9f1;
-  font-size: 4rem;
+  font-size: 3rem;
+  opacity: 0;
+}
+
+#banner .img-wrapper .img-box :hover.info{
+  opacity: 1;
 }
 
 #banner .img-wrapper .img-box img {
