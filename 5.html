@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+    <!-- 引入 ECharts 文件 -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+    <style>
+        #main {
+            width: 600px;height:480px; /* 增加高度 */
+            margin: 0 auto; /
+        }
+        @font-face {
+            font-family: 'Merriweather';
+            src: url('Merriweather-VariableFont_opsz,wdth,wght.ttf') format('truetype');
+        }
+    </style>
+</head>
+<body>
+    <!-- 为ECharts准备一个具备大小（宽高）的DOM -->
+    <div id="main"></div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+
+        // 指定图表的配置项和数据
+        var option = {
+            title: {
+                text: '美国公众认为在减少深度伪造方面负有最大责任的群体',
+                left: 'center',
+                top: '5%',
+                textStyle: {
+                    fontFamily: 'Merriweather',
+                    fontSize: 20,
+                    fontWeight: 'bold'
+                }
+            },
+            tooltip: {
+                trigger: 'item'
+            },
+            series: [
+                {
+                    name: '责任比例',
+                    type: 'pie',
+                    radius: ['30%', '70%'],
+                    avoidLabelOverlap: false,
+                    itemStyle: {
+                        borderRadius: 10,
+                        borderColor: '#fff',
+                        borderWidth: 2
+                    },
+                    label: {
+                        show: true,
+                        position: 'outside',
+                        formatter: '{b}\n{d}%',
+                        textStyle: {
+                            fontFamily: 'Merriweather',
+                            fontSize: 18
+                        }
+                    },
+                    data: [
+                        {value: 20, name: '公众', itemStyle: {color: '#88a8f9'}},
+                        {value: 9, name: '科技公司', itemStyle: {color: '#c0d4f5'}},
+                        {value: 12, name: '政府', itemStyle: {color: '#f2cbb7'}},
+                        {value: 53, name: '新闻媒体', itemStyle: {color: '#f09c85'}},
+                        {value: 5, name: '其他', itemStyle: {color: '#cccccc'}}
+                    ],
+                    center: ['50%', '55%'] /* 调整饼图位置 */
+                }
+            ],
+            graphic: {
+                type: 'text',
+                left: 'center',
+                top: 'bottom',
+                style: {
+                    text: '数据来源：Pew Research Center',
+                    textAlign: 'center',
+                    fontFamily: 'Merriweather',
+                    fontSize: 14
+                }
+            }
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+</body>
+</html>

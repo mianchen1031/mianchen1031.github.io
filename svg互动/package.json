@@ -1,0 +1,31 @@
+{
+  "name": "bonfire",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently \"npm:dev-build\" \"npm:serve\"",
+    "serve": "serve",
+    "dev-build": "rollup --config rollup.config.mjs --watch",
+    "build":"rollup --config rollup.config.mjs --environment production",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChenZhuoSteve/bonfire.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ChenZhuoSteve/bonfire/issues"
+  },
+  "homepage": "https://github.com/ChenZhuoSteve/bonfire#readme",
+  "dependencies": {
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-terser": "^0.4.4",
+    "concurrently": "^8.2.2",
+    "d3": "^7.9.0",
+    "rollup": "^4.13.2",
+    "serve": "^14.2.1"
+  }
+}

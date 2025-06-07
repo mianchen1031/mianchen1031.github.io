@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>深度造假与其他媒体的传播广度对比</title>
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+  <style>
+    @font-face {
+      font-family: 'Merriweather';
+      src: url('Merriweather-VariableFont_opsz,wdth,wght.ttf') format('truetype');
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      font-family: 'Merriweather', serif;
+    }
+
+    #main {
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .title {
+      position: absolute;
+      top: 10px;
+      width: 100%;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      color: black;
+      font-family: 'Merriweather';
+      z-index: 2;
+    }
+
+    .subtitle {
+      position: absolute;
+      top: 45px;
+      width: 100%;
+      text-align: center;
+      font-size: 18px;
+      color: #444;
+      font-family: 'Merriweather';
+      z-index: 2;
+    }
+
+    .footer {
+      position: absolute;
+      bottom: 10px;
+      width: 100%;
+      text-align: center;
+      font-size: 12px;
+      color: #444;
+      font-family: 'Merriweather';
+      z-index: 2;
+    }
+  </style>
+</head>
+<body>
+  <div class="title">深度造假与其他媒体的传播广度对比</div>
+  <div class="subtitle">以美国共和党委员会官方媒体 @GOP 为例</div>
+  <div id="main"></div>
+  <div class="footer">
+    数据来源：Twitter美国共和党官方账号主页 https://twitter.com/GOP<br>
+    深度伪造推文：https://twitter.com/GOP/status/1650818291001163776
+  </div>
+
+  <script>
+    const chart = echarts.init(document.getElementById('main'));
+
+    const categories = ['reply', 'retweet', 'favorite', 'views'];
+    const averageData = [713, 243, 1069, 117446];
+    const deepfakesData = [22563, 2664, 4218, 1829257];
+
+    function computeRatio(df, avg) {
+      return (df / avg).toFixed(1);
+    }
+
+    const option = {
+     
+      tooltip: {
+        trigger: 'axis',
+        axisPointer: { type: 'shadow' },
+        formatter: function (params) {
+          let text = `${params[0].name}<br/>`;
+          params.forEach(p => {
+            text += `${p.marker} ${p.seriesName}: ${p.value}<br/>`;
+          });
+          const ratio = computeRatio(
+            deepfakesData[params[0].dataIndex],
+            averageData[params[0].dataIndex]
+          );
+          text += `<strong>deepfakes 是 average 的 ${ratio} 倍</strong>`;
+          return text;
+        }
+      },
+      legend: {
+        orient: 'vertical',
+        left: '5%',
+        top: 'middle',
+        data: ['average', 'deepfakes'],
+        textStyle: {
+          fontFamily: 'Merriweather',
+          fontSize: 18
+        }
+      },
+      grid: {
+        left: '20%',
+        right: '10%',
+        bottom: '15%',
+        top: '25%'
+      },
+      xAxis: {
+        type: 'category',
+        data: categories,
+        axisLabel: {
+          fontFamily: 'Merriweather',
+          fontSize: 18
+        }
+      },
+      yAxis: {
+        type: 'log',
+        show: false
+      },
+      color: ['#d1d1d1', '#2992e3'],
+      series: [
+        {
+          name: 'average',
+          type: 'bar',
+          data: averageData,
+          barWidth: '40%',
+          itemStyle: {
+            borderRadius: [6, 6, 6, 6]
+          },
+          label: {
+            show: true,
+            position: 'top',
+            fontFamily: 'Merriweather',
+            fontSize: 12
+          }
+        },
+        {
+          name: 'deepfakes',
+          type: 'bar',
+          data: deepfakesData,
+          barWidth: '40%',
+          itemStyle: {
+            borderRadius: [6, 6, 6, 6]
+          },
+          label: {
+            show: true,
+            position: 'top',
+            fontFamily: 'Merriweather',
+            fontSize: 18,
+            formatter: function (params) {
+              const ratio = computeRatio(
+                deepfakesData[params.dataIndex],
+                averageData[params.dataIndex]
+              );
+              return `${params.value}\n(${ratio}x)`;
+            }
+          }
+        }
+      ]
+    };
+
+    chart.setOption(option);
+    window.addEventListener('resize', () => chart.resize());
+  </script>
+</body>
+</html>
