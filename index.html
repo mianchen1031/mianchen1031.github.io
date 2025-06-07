@@ -67,7 +67,6 @@
 			color: #fff;
 			text-align: left;
 		  }
-	
 		  .step {
 			margin: 0 auto 1rem auto;
 			background-color: #ffffff00;
@@ -373,6 +372,46 @@
   border-radius: 20px;        /* 圆角半径，根据需要自行调整 */
   overflow: hidden;           /* 确保内部内容在圆角范围内裁剪 */
 }
+.iframe-wrapper {
+  width: 60%;
+  margin: 0 auto;
+  background: #f0f0f0;
+  border-radius: 20px;
+  padding-top: 20px;          /* 顶部间距 */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  box-sizing: border-box;     /* 包含 padding 不撑大外框 */
+  overflow: hidden;           /* 防止 iframe 外溢 */
+}
+.iframe-wrappe1 {
+  width: 80%;
+  height:1000px;
+  margin: 0 auto;
+  background: #f0f0f0;
+  border-radius: 20px;
+  padding-top: 20px;          /* 顶部间距 */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  box-sizing: border-box;     /* 包含 padding 不撑大外框 */
+  overflow: hidden;           /* 防止 iframe 外溢 */
+}
+.iframe-wrappe2 {
+  width: 70%;
+  height:1000px;
+  margin: 0 auto;
+  background: #f0f0f0;
+  border-radius: 20px;
+  padding-top: 20px;          /* 顶部间距 */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  box-sizing: border-box;     /* 包含 padding 不撑大外框 */
+  overflow: hidden;           /* 防止 iframe 外溢 */
+}
+.centered-frame {
+  display: block;
+  width: 100%;
+  height: 500px;
+  border: none;
+  border-radius: 8px;
+}
+
 		</style>
 	</head>
 	<body>
@@ -471,7 +510,28 @@
 				<p class="intro__dek">这种现象在20年大选时还只是在社交平台缓慢渗透，现在已经汇聚成巨大洪流，开始改写全球民主选举的游戏规则。
 				而2024恰逢全球大选年，世界上将有数十亿人参与选举投票。我们将看到从美国到俄罗斯、印度和萨尔瓦多等50多个国家的大选。
 				与此同时，深度伪造的图片及音视频正以前所未有的速度在增长。
-				</p></p><img src="images/柱状图.svg" alt="" width=50% height=50% />
+				</p></p>
+				<!--<img src="images/柱状图.svg" alt="" width=50% height=50% />-->
+				<div class="iframe-wrapper"><iframe id="myiframe5" src="1.html" scrolling="no"  sandbox="allow-scripts allow-same-origin"
+  style="display:block; border:none; margin: 0 auto; padding:0;background: #f0f0f0;border-radius: 20px;border: none;"
+  width="80%"
+  height="500px"
+  
+></iframe>
+
+<script>
+  const iframe5= document.getElementById("myiframe5");
+
+  window.addEventListener("message", (event) => {
+    const data = event.data || {};
+    if (data.type === "bonfireSize") {
+      // 收到子页面发来的尺寸
+      iframe.style.width  = data.width  + "px";
+      iframe.style.height = data.height + "px";
+      console.log("已调整 iframe 大小：", data.width, data.height);
+    }
+  });
+</script></div><p></p><p><br></p><p></p>
 				  <p class="intro__dek">
 	               在数量上，网络安全公司Home Security Heroes 2023 年的报告显示，在线深度伪造视频总数为&nbsp;<span id="valChangeAmt" class="valChangeAmt-box">0</span> 
 					个，比 2018 年增长 120倍。</p>
@@ -507,7 +567,27 @@
 <section id="intro">
 	<p class="intro__dek">
 				由于深度伪造图频的仿真度和生动性，它能够快速并且广泛传播。通过对美国共和党委员会官方账号所有推文的传播数据计算，我们发现深度伪造的传播广度大约是其他推文均值的几十倍(如下图)。</p>
-				<img src="images/曲线.svg" alt="" width=50% height=50%/>
+				<!--<img src="images/曲线.svg" alt="" width=50% height=50%/>-->
+				<div class="iframe-wrapper1"><iframe id="myiframe6" src="3.html" scrolling="no"  sandbox="allow-scripts allow-same-origin"
+  style="display:block; border:none; margin: 0 auto; padding:0;background: #f0f0f0;border-radius: 20px;border: none;"
+  width="70%"
+  height="500px"
+  
+></iframe>
+
+<script>
+  const iframe6= document.getElementById("myiframe6");
+
+  window.addEventListener("message", (event) => {
+    const data = event.data || {};
+    if (data.type === "bonfireSize") {
+      // 收到子页面发来的尺寸
+      iframe.style.width  = data.width  + "px";
+      iframe.style.height = data.height + "px";
+      console.log("已调整 iframe 大小：", data.width, data.height);
+    }
+  });
+</script></div>
 			</section>
 
 				<section id="intro">
@@ -521,6 +601,7 @@
 							<section id="scrolly">
 							  <article>
 								<div class="step" data-step="images/扇形1.svg">
+								<!--<div class="step" data-step='svg互动/svggaoliang.html'></div>-->
 									<p></p><p></p>
 								  <p>在深度伪造的表现形式上，<br><span class="stackedBarTextAnnotation" value="人物演讲视频" hovertype="inTextHover" id="hover-pink-none">人物演讲视频</span>占比达到了半数以上，创作者多用AI生成政治人物的伪造音频，并对视频中的人物进行面部追踪以达到口型一致的效果。根据学者研究，人物出镜讲解的信息表征形式对受众信任度有重要影响。
 									</p><p></p><p></p>
@@ -536,6 +617,9 @@
 							  <div class="sticky-thing">
 								<!--embed src="my.svg" type="image/svg+xml" /-->
 								<img src="images/扇形1.svg" alt="" width=100% height=100% ></div!>
+								<!--<iframe id="graphicFrame" src="svg互动/svggaoliang.html" alt="" width=100% height=100% frameborder="0" sandbox="allow-scripts allow-same-origin"></iframe>-->
+								
+    	
 								<!--a href="my.svg"!-->
 							  </div>
 							</section>
@@ -568,12 +652,20 @@
 							  
 							  //sticky.querySelector("p").addClass('logo-black');
 							  //var q="02.svg"
+
+//恢复以下两行
 							  sticky.querySelector("img").src= el.dataset.step
 							  console.log(el.dataset.step)
+
+
+
 							  //p.setAttribute('style', 'fill: green');
 							  //"{el.dataset.step}"
 							  //console.log(el.dataset)
 							  //sticky.querySelector("img")= 
+							  //const iframe = sticky.querySelector("#graphicFrame");
+  							  //iframe.src = el.dataset.step;
+
 							}
 							function init() {
 							  scroller
@@ -585,8 +677,13 @@
 								.onStepEnter(handleStepEnter);
 							  // setup resize event
 							  window.addEventListener("resize", scroller.resize);
+							    // 首次进入就加载第一个 step
+								//const firstSrc = steps[0].dataset.step;
+								//sticky.querySelector("#graphicFrame").src = firstSrc;
 							}// kick things off
 							init();
+
+
 						  </script>
 
 <section id="five" class="wrapper style4"><div class="inner">
@@ -695,7 +792,28 @@ Chris连续使用了“wreck(毁坏)”、“ havoc(严重破坏)”两个情绪
 		</div></section>
 		
 		<section id="intro">
-			<img src="images/饼图.svg" alt="" width=50% height=50%/>
+<div class="iframe-wrapper2"><iframe id="myiframe7" src="5.html" scrolling="no"  sandbox="allow-scripts allow-same-origin"
+  style="display:block; border:none; margin: 0 auto; padding:0;background: #f0f0f0;border-radius: 20px;border: none;"
+  width="60%"
+  height="500px"
+  
+></iframe>
+
+<script>
+  const iframe7= document.getElementById("myiframe7");
+
+  window.addEventListener("message", (event) => {
+    const data = event.data || {};
+    if (data.type === "bonfireSize") {
+      // 收到子页面发来的尺寸 <img src="images/饼图.svg" alt="" width=50% height=50%/>
+      iframe.style.width  = data.width  + "px";
+      iframe.style.height = data.height + "px";
+      console.log("已调整 iframe 大小：", data.width, data.height);
+    }
+  });
+</script></div>
+
+
 			<h1 class="intro__hed">应对深度伪造的集体性努力💡</h1><a name="measure"></a>
 			<p class="intro__dek">	新闻媒体的内容审核是深度伪造内容到达大众视野的最后一道防线，众多社交平台都做出了尝试。</p>
 <p class="intro__dek">
@@ -729,6 +847,34 @@ Chris连续使用了“wreck(毁坏)”、“ havoc(严重破坏)”两个情绪
 
 <p class="intro__dek">
 结果显示超过一半的指令成功生成了虚假的选举照片，其中Midjourney最有可能生成选举相关的深度伪造图片，而ChatGPT Plus(DALL-E 3)和Microsoft的Image Creator成功地拦截了所有与候选人相关的图像。</p>
+
+
+<iframe
+  id="myiframe"
+  src="svg互动/svggaoliang.html"
+  frameborder="0"
+  sandbox="allow-scripts allow-same-origin"
+  style="display:block; border:none; margin:0; padding:0;"
+  width="100%"
+  height="750px"
+></iframe>
+
+<script>
+  const iframe = document.getElementById("myiframe");
+
+  window.addEventListener("message", (event) => {
+    const data = event.data || {};
+    if (data.type === "bonfireSize") {
+      // 收到子页面发来的尺寸
+      iframe.style.width  = data.width  + "px";
+      iframe.style.height = data.height + "px";
+      console.log("已调整 iframe 大小：", data.width, data.height);
+    }
+  });
+</script>
+
+
+
 </section>
 
 
@@ -745,7 +891,7 @@ Chris连续使用了“wreck(毁坏)”、“ havoc(严重破坏)”两个情绪
 
 					<header class="align-center"><h2>FUTURE<br>
 						
-							以上，我们可以看到各群体为维护民主进程的完整性而做出的集体性努力。正如美国《时代》周刊所说，“需要解决的问题从来不是人工智能，而是虚假信息”。深度伪造对24大选的影响仍不可预估，需要更多的管控力来遏制人工智能的潘多拉魔盒。</p>
+							以上，我们可以看到各群体为维护民主进程的完整性而做出的集体性努力。正如美国《时代》周刊所说，“需要解决的问题从来不是人工智能，而是虚假信息”。深度伪造对政治选举的影响仍不可预估，需要更多的管控力来遏制人工智能的潘多拉魔盒。</p>
 						</h2>
 					</header></div>
 			</section><!-- Footer --><div class="copyright">
