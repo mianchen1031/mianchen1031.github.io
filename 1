@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+    <!-- 引入 ECharts 文件 -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+    <style>
+        @font-face {
+            font-family: 'Merriweather';
+            src: url('Merriweather-VariableFont_opsz,wdth,wght.ttf') format('truetype');
+        }
+        html, body {
+            height: 100%;
+            margin: 0;
+            font-family: 'Merriweather', sans-serif;
+        }
+        #main {
+            height: 80%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .data-source {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
+            font-family: 'Merriweather', sans-serif;
+        }
+    </style>
+</head>
+<body style="height: 100%; margin: 0">
+    <!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
+    <div id="main"></div>
+    <div class="data-source">
+        数据来源：Sentinel Analysis，2020<br>
+        Home Security Heroes report：2023 STATE OF DEEPFAKES: Realities, Threats, and Impact
+    </div>
+    <script type="text/javascript">
+        // 基于准备好的 DOM，初始化 echarts 实例
+        var myChart = echarts.init(document.getElementById('main'));
+
+        // 指定图表的配置项和数据
+        var option = {
+            title: {
+                text: '线上深度造假的视频数量',
+                left: 'center',
+                textStyle: {
+                    fontSize: 24,
+                    fontWeight: 'bold',
+                    fontFamily: 'Merriweather'
+                }
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow'
+                }
+            },
+            xAxis: {
+                type: 'category',
+                data: ['2018', '2019', '2020', '2023'],
+                axisLabel: {
+                    fontSize: 16,
+                    fontFamily: 'Merriweather'
+                }
+            },
+            yAxis: {
+                type: 'value',
+                show: false, // 不显示纵坐标
+                axisLabel: {
+                    fontSize: 16,
+                    fontFamily: 'Merriweather'
+                }
+            },
+            series: [{
+                data: [7964, 14678, 49081, 95820],
+                type: 'bar',
+                barWidth: '60%',
+                itemStyle: {
+                    color: function(params) {
+                        var colors = ['#e0e0e0', '#dbdbdb', '#c4c4c4', '#3f9de5'];
+                        return colors[params.dataIndex];
+                    },
+                    borderRadius: [10, 10, 10, 10] // 修饰柱子的形状，使其更加圆润
+                },
+                label: {
+                    show: true,
+                    position: 'top',
+                    formatter: '{c}',
+                    color: '#000',
+                    fontFamily: 'Merriweather',
+                    fontSize: 20
+                }
+            }],
+            legend: {
+                data: ['数量'],
+                textStyle: {
+                    color: '#000',
+                    fontFamily: 'Merriweather'
+                }
+            }
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+
+        // 窗口大小调整时重新渲染图表
+        window.addEventListener('resize', function() {
+            myChart.resize();
+        });
+    </script>
+</body>
+</html>
