@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style copy.css">
+    <link rel="stylesheet" href="style 2.css">
 <style>
 .text p{
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
@@ -13,14 +13,49 @@
     top: 3rem;
 	left: 3rem;
 	font-size:3rem;
+    color: #fff;
 }
+.text2 p{
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-align: center;
+    top: 3rem;
+	left: 3rem;
+	font-size:2.2rem;
+    color: #fff;
+}
+.text1 p{
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-align: center;
+    top: 3rem;
+	left: 3rem;
+	font-size:2rem;
+    color: #14412b;
+}
+/* 让整个页面背景变成蓝色 */
+html, body {
+      height: 121vh; 
+      margin: 0;
+      padding: 0;
+      /* 背景图片 */
+      background-image: url('images/【Midjourney】Blue_6_AnnaDeer_来自小红书网页版.jpg');
+      background-size: cover;           /* 按比例放大/缩小，铺满整个区域 */
+      background-position: center center; /* 居中对齐 */
+      background-repeat: no-repeat;     /* 不平铺 */
+      /* 可选：在图片加载前或加载失败时，显示一个背景色 */
+      background-color: #007bff;
+    }
 
 </style>
 </head>
 
 <body>
-    <div class="text">
-        <p>  眼见👀一定为实吗？</p>
+    <div class="text"><br>
+      <p>👀 </p>
+       <p> Let's play a game!</p>
+    </div>
+     <div class="text2">
+     
+        <p>眼见一定为实吗？</p>
         <p> 下面哪些图片是真实拍摄的·鼠标悬停可显示答案</p>
     </div>
     <div id="banner">
@@ -214,6 +249,10 @@
         lastBtn.onclick = throttle(() => cilckFun('last'), animationTime * 1000);
     </script>
 
+  <div class="text1"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+     
+        <p>🕹️ 以上仅有两张为真实拍摄的图片，你判断正确了吗？</p>
+    </div>
 </body>
 
 </html>
