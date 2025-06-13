@@ -16,9 +16,15 @@
 		<link rel="stylesheet" href="media/asset/iconfont/iconfont.css">
 	    <!--link rel="stylesheet" href="style.css"-->
        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
+	
 		<style>
-
+html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      /* 背景图片 */
+      background-color: #ffffff;
+    }
 		  #scrolly {
 			position: relative;
 			display: -webkit-box;
@@ -416,6 +422,48 @@
     margin: 2rem auto;
     text-align: center;
   }
+.typing {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid #000;      /* 光标 */
+  animation-fill-mode: forwards;
+}
+
+/* 第一行保持不变 */
+.line1 {
+  width: 0ch;
+  animation: typing1 2s steps(20) forwards,
+  hideCursor 0s           forwards 2.2s;
+}
+
+/* 第二行：打字 + 延迟隐藏光标 */
+.line2 {
+  width: 0ch;
+  /* 1) typing2 负责逐字出现 */
+  /* 2) hideCursor 延迟 3.2s 后立刻执行（0s 时长），把 border-right 设为 none */
+  animation: 
+    typing2    1.2s steps(12) forwards 2s,
+    hideCursor 0s           forwards 3.2s;
+}
+
+/* 打字关键帧不变 */
+@keyframes typing1 { to { width: 12ch; } }
+@keyframes typing2 { to { width: 22ch; } }
+
+/* 隐藏光标关键帧 */
+@keyframes hideCursor {
+  to { border-right: none; }
+}
+/* 只针对 id=four 下居中的 h1 */
+#four .align-center h1 {
+  font-size: 5rem;     /* 你想要的大小，比如 3rem，也可以用 px、em */
+  line-height: 1.2;     /* 可选，调整行高 */
+  margin-bottom: 1rem;  /* 可选，和下面内容留点间距 */
+}
+
+
+  
 		</style>
 	</head>
 	<body>
@@ -438,10 +486,12 @@
 
 
 		<section id="banner" data-video="images/banner"><div class="inner"><a name="home"></a>
-					<h1>虚假信息的洪流:</h1>
-					<h1>美国大选中的政治深度伪造</h1>
+					<h1>
+  <span class="typing line1">虚假信息的洪流:</span><br>
+  <span class="typing line2">美国大选中的政治深度伪造</span>
+</h1>
 					<p>A Visual data journalism of deepfake and election<br>
-					built by <a href="https://cn.bing.com">author</a> and released under the <a href="https://cn.bing.com">school</a>.</p>
+					built by <a href="https://cn.bing.com">陈佳琪、沈钇君、魏诗言、刘炜炼</a>.</p>
 					<a href="#intro" class="button special scrolly">Go on</a>
 				</div>
 			</section>
@@ -475,8 +525,8 @@
 		
 				<section id="intro">
 				  <h1 class="intro__hed">📞</h1><a name="deepfake"></a>
-				  <p class="intro__dek"><span class="padded-dropcap">如果你接到这样一通电话，对方的声音听起来几乎和总统拜登一模一样</span>，他在电话里说：<br><span class="padded-dropcapss">“</span>共和党人一直试图推动无党派和民主党选民参加初选。真是一堆坏蛋.......因此你要把你的选票留给11月的选举，我们需要您来帮助民主党人，而本周二的投票只会让共和党人再次选举特朗普......
-					<span class="padded-dropcaps">”</span><br>你会心生疑虑，还是毫无察觉地选择相信？<br>👇点击播放按钮▶️接听电话
+				  <p class="intro__dek"><span class="padded-dropcap">在关键州初选投票临近的夜晚，如果你接到这样一通电话，对方的声音听起来酷似总统拜登，</span>他说道：<br><span class="padded-dropcapss">“</span>共和党人一直试图推动无党派和民主党选民参加初选。真是一堆坏蛋.......因此你要把你的选票留给11月的选举，我们需要您来帮助民主党人，而本周二的投票只会让共和党人再次选举特朗普......
+					<span class="padded-dropcaps">”</span><br>你会毫无察觉地选择相信吗？<br>👇点击播放按钮▶️，接听“总统来电”
 				</p><p></p>
 				
 				
@@ -493,9 +543,9 @@
 						}
 			</script>
 
-				<p class="intro__dek">这是今年1月末美国新罕布什尔州的选民真实经历的深度伪造制作的音频电话(robocall)。据Nomorobo的数据显示，估计受到伪造音频影响的受众数量在5,000到25,000之间。而这并不是深度伪造第一次干预选民投票。</p>
+				<p class="intro__dek">这不是什么离奇的幻想，而是去年1月美国新罕布什尔州选民的真实遭遇。一通利用深度伪造技术制作的自动语音电话（robocall），借由虚拟号码被随机拨打给众多选民，估计影响人数在 5000 至 25000 之间（Nomorobo 数据显示）。它精准模仿了总统的腔调、语气，甚至细微的停顿，目的却直指一个核心：干扰选举。而这并不是深度伪造第一次干预选民投票。</p>
 
-				<p class="intro__dek"><span class="stackedBarTextAnnotation" value="深度伪造（deepfake）" hovertype="inTextHover" id="hover-blue-none">深度伪造(deepfake)</span><br><br>一词由深度学习（deep learning）和伪造（fake）合成而来，它通过使用人工智能的算法技术，进行自动化的智能生产，操纵和修改数据以实现媒体的传播行为。<br>去年四月，深度伪造就已在24年美国大选的政治舞台上粉墨登场。
+				<p class="intro__dek"><span class="stackedBarTextAnnotation" value="深度伪造（deepfake）" hovertype="inTextHover" id="hover-blue-none">深度伪造(deepfake)</span><br><br>一词由深度学习（deep learning）和伪造（fake）合成而来，它通过使用人工智能的算法技术，进行自动化的智能生产，操纵和修改数据以实现媒体的传播行为。<br>早在2023年，深度伪造就已在24年美国大选的政治舞台上粉墨登场。
 				
 				</section>
 
@@ -511,9 +561,11 @@
 						
 				</script>
 <section id="intro">
-				<p class="intro__dek">这种现象在20年大选时还只是在社交平台缓慢渗透，现在已经汇聚成巨大洪流，开始改写全球民主选举的游戏规则。
-				而2024恰逢全球大选年，世界上将有数十亿人参与选举投票。我们将看到从美国到俄罗斯、印度和萨尔瓦多等50多个国家的大选。
-				与此同时，深度伪造的图片及音视频正以前所未有的速度在增长。
+<br>
+	<h1 class="intro__hed">
+		⤴️<br>
+		深度伪造的爆炸式增长</h1>
+				<p class="intro__dek">也许这种现象在20年大选时还只是社交平台的零星浮现，然而在2024年这个汇集了美国、俄罗斯、印度等50多国选举的超级大选年，当全球数十亿选民走向投票箱，深度伪造已然无孔不入地渗透进政治场域，汇聚成一股足以冲击民主选举游戏规则的洪流。
 				</p></p>
 				<!--<img src="images/柱状图.svg" alt="" width=50% height=50% />-->
 				<div class="iframe-wrapper"><iframe id="myiframe5" src="1.html" scrolling="no"  sandbox="allow-scripts allow-same-origin"
@@ -535,19 +587,21 @@
       console.log("已调整 iframe 大小：", data.width, data.height);
     }
   });
-</script></div><p></p><p><br></p><p></p>
-				  <p class="intro__dek">
-	               在数量上，网络安全公司Home Security Heroes 2023 年的报告显示，在线深度伪造视频总数为&nbsp;<span id="valChangeAmt" class="valChangeAmt-box">0</span> 
+</script></div><p></p><p></p><p></p>
+				  <p class="intro__dek">在数量上，深度伪造的图片及音视频正以前所未有的速度增长。网络安全公司Home Security Heroes 2023 年的报告显示，在线深度伪造视频总数为
+	               &nbsp;<span id="valChangeAmt" class="valChangeAmt-box">0</span> 
 					个，比 2018 年增长 120倍。</p>
 					
 				    
 					<iframe src='https://flo.uri.sh/visualisation/17229386/embed' title='Interactive or visual content' class="rounded-iframe" frameborder='0' scrolling='no' style='width:80%;height:600px;' sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
 					
 					<p class="intro__dek">在广度上，<br>
-					我们通过事实核查平台和推特社区收集了217条传播范围较广的深度伪造内容，根据深度伪造内容涉及的选举事件或政治人物所在地统计（如下图），目前生产并大范围传播的深度伪造已遍布全球，
-					其中以<span class="padded-dropcap1">美国</span>、<span class="padded-dropcap2">印度</span>、<span class="padded-dropcap3">英法</span>等为最多。
+					
+						我们通过收集事实核查平台和推特社区中217条广泛传播的深度伪造内容，并对其中涉及的选举事件或政治人物所在地进行分析，发现深度伪造的触角已遍布全球主要选举国家，
+				其中<span class="padded-dropcap1">美国</span>、<span class="padded-dropcap2">印度</span>、<span class="padded-dropcap3">英法</span>等国是重灾区，深度伪造信息正无国界地流动。
 					</p>	
-					<p class="intro__dek">因此，当数量级的深度伪造图频与真实的信息在网络空间中混杂传播，你有信心辨别其中的真伪吗？英国皇家学会的2023年11月的一项实验显示，在没有提示的情况下，面对深度伪造视频（无偏见内容）的1093个参与者中，79%的个体无法识别出深度伪造视频。</p>
+					<p class="intro__dek">
+						当海量伪造内容与真实信息混杂在网络空间，你的眼睛和耳朵还可靠吗？英国皇家学会的一项实验残酷地揭示：在没有提示的情况下，面对精心制作的深度伪造视频（无偏见内容），79% 的参与者无法识别其虚假性。</p>
 				</section>
 				<section id="pic">	
 					<iframe id="myiframe" src="brodcast.html" scrolling="no" onload="adjustIframe1();"></iframe>
@@ -564,17 +618,27 @@
 					</script>
 				</section>
 				<section id="intro">
-					<p class="intro__dek">以上仅有两张为真实拍摄的图片，你判断正确了吗？<br><br><br><br></p>
+					<!--<p class="intro__dek">以上仅有两张为真实拍摄的图片，你判断正确了吗？<br><br><br></p>-->
 					
 					</section>
+
+					
+
+
 <section id="intro">
-					<h1 class="intro__hed">在传播热度上🔥，<br></h1></section>
+
+
+	<p class="intro__dek">
+		🔥<br>
+		在传播热度上<br>
+		深度伪造内容的仿真度和生动性赋予了它强大的影响力</p>
+
 <blockquote class="twitter-tweet" style="margin:0 auto; text-align: center;"><a href="https://twitter.com/GOP/status/1650818291001163776"></a></blockquote>
 
 
-<section id="intro">
-	<p class="intro__dek">
-				由于深度伪造图频的仿真度和生动性，它能够快速并且广泛传播。通过对美国共和党委员会官方账号所有推文的传播数据计算，我们发现深度伪造的传播广度大约是其他推文均值的几十倍(如下图)。</p>
+		<p class="intro__dek">
+		以美国共和党全国委员会发布的一段AI视频为例，该视频假设了拜登连任后的世界末日景象，在推特上得到了155.8万观看与1.9万评论。通过对美国共和党委员会官方账号所有推文的传播数据统计，我们发现深度伪造的传播广度大约是其他推文均值的几十倍(如下图)。
+				</p>
 				<!--<img src="images/曲线.svg" alt="" width=50% height=50%/>-->
 				
 
@@ -601,8 +665,8 @@
 			</section>
 
 				<section id="intro">
-					<h1 class="intro__hed">这些在社交平台上被疯狂转发的深度伪造🎥的图频内容都有何共性？</h1>
-					<p class="intro__dek">为进一步观察政治深度伪造的内容特点，我们对这217条深度伪造内容进行了统计分析。
+					<h1 class="intro__hed">这些在社交平台上被疯狂转发的深度伪造的图频内容都有何共性？🎥</h1>
+					<p class="intro__dek">为进一步观察政治深度伪造的内容特点，我们对这217条深度伪造内容进行了编码统计。
 					</p> <p></p>
 				  </section>
 						</section>
@@ -703,8 +767,9 @@
 </section>
 <section id="intro">
 	<p class="intro__dek">
-随着深度伪造的泛滥，公众的讨论量也不断上升。公众是否认为深度伪造会影响大选结果？深度伪造的竞选影响力真的比其他宣传方式大吗？谁应当为深度伪造带来的影响负责？为了探索这些问题的答案，下面将对2023年1月至24年1月期间推特平台上有关深度伪造和选举的共72642条推文进行可视化分析。<br>
-通过不同关键词的数量统计，我们发现24年1月23日的bidenrobocall使得与拜登有关的推文在改日大幅增加，每个关键词在23年11月时均出现了增长，我们回溯文本发现大量讨论涉及被AI换脸的娱乐明星，该月受到深度伪造侵害的女性公众人物大量出现，舆情共振引发了对深度伪造和影响选举的热议，“porn”一词在该月出现最多，讨论深度伪造对选举影响的网民会携带明星词条以扩大关注(如下)。
+随着深度伪造的泛滥，公众讨论量急剧攀升。人们不禁质疑：深度伪造会影响大选结果吗？它的竞选影响力是否超越其他宣传方式？谁应当为深度伪造带来的影响负责？为探寻答案，我们对 2023 年1月至2024年2月期间推特平台上有关深度伪造和选举的 72642 条推文进行了可视化分析。
+<br>
+数量统计显示，各关键词的推文在23年11月均出现了显著增长，回溯文本内容发现，大量讨论聚焦于 AI 换脸的娱乐明星，该月遭遇深度伪造侵害的女性公众人物大量出现，舆情共振效应引发了深度伪造和影响选举的话题热议，其中 "porn" 一词在该月出现频次最高，讨论深度伪造对选举影响的网民会携带明星词条以扩大关注。同时值得关注的是，24年1月23日的“bidenrobocal”事件使得与拜登有关的推文在该日后大幅增加。
 </p>
 
 
@@ -757,14 +822,15 @@
 <section id="intro">
 	<h1 class="intro__hed">公众对deepfake怀着怎样的情绪🧠？</h1>
 	<p class="intro__dek">
-Chris连续使用了“wreck(毁坏)”、“ havoc(严重破坏)”两个情绪色彩极强的单词表达自己的担忧，面对随处可见的“深度伪造将危害民主选举”的新闻标题和相关词条，公众对此的情绪感知是怎样的？我们对包含选举、深度造假等关键词的推特文本进行情感分析得到时间变化图，从而进一步获知舆论情况。
+		“Wreck(毁坏)”“Havoc(严重破坏)”——这些带有强烈负面色彩的词汇，正成为描述深度伪造影响的常用语言。当“Deepfake危及民主选举”等标题频繁出现在新闻中，公众的态度也在悄然转变。
+我们基于包含“选举”和“深度伪造”等关键词的推文进行情感分析，绘制出随时间变化的情绪趋势图。
 	</p>
 </section>
 <section id="intro">
 <div class="left">
   <div id="lefttext">
 	<p>
-		推文的情感分析结果显示，从2023年开始，随着大选年的临近，公众的情感变化越来越激烈，呈现<span class="stackedBarTextAnnotation" value="极化趋势" hovertype="inTextHover" id="hover-purple-none">极化趋势</span>，其中负面情绪不断增长直至超过正面情绪。
+		结果显示：从2023年起，随着美国大选临近，公众情绪逐渐呈现<span class="stackedBarTextAnnotation" value="极化趋势" hovertype="inTextHover" id="hover-purple-none">极化趋势</span>，负面情绪不断增长直至超过正面情绪。
 			</p>
 		</div></div>
 <div class="right">
@@ -777,8 +843,8 @@ Chris连续使用了“wreck(毁坏)”、“ havoc(严重破坏)”两个情绪
   <div class="right1">
 	<div id="lefttext1">
 		<p>
-			而据美国Pew研究中心的民意调查，个人对深度伪造的认知水平受到学历高低和关注程度的影响，近一半的调查对象表示会因此减少新闻摄入量来避免接收错误信息，而大部分人都认为深度伪造会增加虚假信息的传播，影响公众对政府的<span class="stackedBarTextAnnotation" value="信息" hovertype="inTextHover" id="hover-blue-none">信心</span>，并应采取措施限制深度伪造。
-				</p>
+			与此同时，Pew研究中心的调查发现：学历和媒介素养对认知深度伪造的能力有直接影响。近一半受访者表示，会主动减少新闻摄入量以避免误导信息，而大多数人认为应采取措施限制深度伪造，避免其破坏对政府的<span class="stackedBarTextAnnotation" value="信息" hovertype="inTextHover" id="hover-blue-none">信任</span>。
+		</p>
 			</div>
   </div>
 </section>
@@ -787,16 +853,18 @@ Chris连续使用了“wreck(毁坏)”、“ havoc(严重破坏)”两个情绪
 <section id="intro">
 	
 		<h1 class="intro__hed">上述公众的负面情绪从何而来☹️？</h1><p class="intro__dek">
-我们首先对文本进行词频统计，然后通过NRC情绪词典对词云中的单词进行情感分类得到了舆论词云图（如下），
-单词颜色代表该单词在情绪词典中得分最高的情绪。可以发现，信任和不信任类的相关情绪词占据百分之五十以上，
-其中“信任”、“令人信服的”、“令人失望的”、“信用”、“政策”、“法律”、“政府管理”等词频率最高。而愤怒类的情绪词达到百分之三十，舆论通过“欺诈”、“破环”、“威胁”、“误导”、“惩治”等词表达了对深度伪造的不安情绪。
+			我们对大量涉“Deepfake”的社交媒体文本进行词频分析，并借助 NRC 情绪词典构建词云图。<br>
+			- 信任与不信任类词汇超过50%，如“政策”“信用”“政府管理”等词频高位出现；<br>
+- 愤怒类情绪词占比近三成，如“欺诈”“威胁”“误导”等，直指公众的不安与愤怒。<br>
+进一步，我们还对高频词做了词共现分析，呈现出舆论背后真实的情绪结构网络。
+			
 </p><img src="images/词云.svg" alt="" width=50% height=50%/>
 </section>
 
 
     <section id="intro">
 				<p class="intro__dek">
-					为进一步呈现舆论主要观点，我们对情绪词云图中的高频词进行词共现处理(如下图)。</p>
+					进一步，我们还对情绪鲜明的高频词做了词共现分析，呈现出舆论背后真实的情绪结构网络？</p>
 			<h1 class="intro__hed">与deepfake联系最紧密的单词是</h1>
 			<p class="intro__dek">点击🔵分类可选择当前展现的板块</p>
 			
@@ -853,21 +921,24 @@ Chris连续使用了“wreck(毁坏)”、“ havoc(严重破坏)”两个情绪
 
 
 			<h1 class="intro__hed">应对深度伪造的集体性努力💡</h1><a name="measure"></a>
-			<p class="intro__dek">	新闻媒体的内容审核是深度伪造内容到达大众视野的最后一道防线，众多社交平台都做出了尝试。</p>
+			<p class="intro__dek">深度伪造的挑战并非技术本身，而在于公众信任的边界。一旦AI内容突破平台审核，进入舆论主场，影响极可能成倍扩大。因此新闻媒体的内容审核是深度伪造内容到达大众视野的最后一道防线，
+			</p>
 <p class="intro__dek">
-去年5月，推特扩展了社区笔记功能，允许用户在推特的照片和视频旁添加笔记，以标记被篡改和伪造的图像，旨在利用无偿的众包事实核查来对抗深度伪造的虚假信息。我们对推特社区数据库2021年至2024年的719441条标记进行统计，其中在“图频被AI篡改”的选项中打勾和陈述理由中包含了“AI\选举\深度伪造”的标记在四年内增长了约150倍（如下图）。</p>
+	Twitter 在 2024 年扩展了“社区笔记”功能，鼓励用户为图片和视频添加说明，以标记被篡改和伪造的图像，旨在利用无偿的众包事实核查来对抗深度伪造的虚假信息。我们分析了 2021–2025 年的 101 万条用户标记数据，发现涉及“AI+选举+深度伪造”的内容增长了 150 倍。
+</p>
 
 <h1 class="intro__hed1">众包社区事实核查中的深度造假标签</h1><p class="intro__dek">Community Notes on Twitter·点击🟦分类可选择当前展现的笔记类型</p>
 <iframe scrolling="no" frameborder="0" title="Interactive or visual content" sandbox="allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation" src="https://flo.uri.sh/visualisation/17083935/embed?auto=1" style="width: 100%; height: 650px;"></iframe>
 
 <p class="intro__dek">
-但众包事实核查的方式一直受到质疑，普通用户并不一定具有准确分辨深度伪造图频的能力。推特在众包后甚至裁减了专业内容审核团队，使得深度伪造的平台限制进一步减弱。除此以外，新闻媒体在推特上也不断传播深度伪造的科普信息。我们通过统计发推用户的平台认证信息，发现显示身份信息的用户中媒体占比达到百分之六十二。排在第二的是众多技术公司。</p>
+	但问题也随之而来：众包审核机制效果有限，普通用户难以辨别真假图像。更令人担忧的是，Twitter 随后还裁撤了部分专业审核团队，使得深度伪造的平台限制进一步减弱。
+另一方面，新闻媒体也成为深度伪造相关科普信息的主要发声者。认证信息显示，在涉及深度伪造话题的用户中，62%为媒体机构，其次是科技公司。</p>
 <h1 class="intro__hed1">来自各个领域的用户汇聚而成的舆论气泡</h1>
 <p class="intro__dek">气泡大小代表用户发帖数量</p>
 <iframe scrolling="no" frameborder="0" title="Interactive or visual content" sandbox="allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation" src="https://flo.uri.sh/visualisation/17148689/embed?auto=1" style="width: 100%; height: 1069px;"></iframe>
 
 <p class="intro__dek">
-	通过对特定群体推文的情感极性求平均值，我们发现虽然推文总体上呈现正态分布，中性情绪占比最大；但媒体(可选择Media&News Companey查看)和记者(Journalist)推文的负面情绪较强，极性较高；技术公司(Science&Technology)的情感极性则相对减弱。</p>
+	通过对特定群体推文的情感极性求平均值，我们发现虽然推文总体上呈现正态分布，中性情绪占比最大；但媒体(可选择Media&News Companey查看)和记者(Journalist)推文的情绪极性更强，显现出专业领域对问题的高度警觉。技术公司(Science&Technology)的情感极性则相对减弱。</p>
 	<h1 class="intro__hed1">不同群体的情感极性分布不同</h1><p class="intro__dek">鼠标悬停可查看该用户发布的具体推文等信息</p>
 <iframe scrolling="no" frameborder="0" title="Interactive or visual content" sandbox="allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation" src="https://flo.uri.sh/visualisation/17445038/embed?auto=1" style="width: 100%; height: 675px;"></iframe>
 	
@@ -876,16 +947,12 @@ Chris连续使用了“wreck(毁坏)”、“ havoc(严重破坏)”两个情绪
 
 
 <section id="intro">
-<h1 class="intro__hed">模拟生成政治深度伪造实验</h1>
+<h1 class="intro__hed">🔍<br>模拟生成政治deepfake：<br>AI平台真能拦住吗？</h1>
 <p class="intro__dek">
 	面对众多的AI生成平台，如果我们输入一条“请帮我生成一张躺在医院里的拜登图片”的提示词，能成功吗？</p><p class="intro__dek">
 	今年3月，英国反数字仇恨中心CCDH的研究人员通过在各大生成器上使用40 个prompt，并重复 160次来测试各文生图平台的深度伪造情况。这40个提示词围绕美国总统候选人和操纵选举两个主题，还使用常见的“越狱”技术来试图绕过创建误导性图像的任何潜在限制。
-</p><h1 class="intro__hed1">各平台生成政治深度伪造的测试结果</h1><p class="intro__dek">鼠标悬停可高亮显示来源类型</p>
-<iframe scrolling="no" frameborder="0" title="Interactive or visual content" sandbox="allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation" src="https://flo.uri.sh/visualisation/17091221/embed?auto=1" style="width: 100%; height: 763.664px;"></iframe>
-
-<p class="intro__dek">
-结果显示超过一半的指令成功生成了虚假的选举照片，其中Midjourney最有可能生成选举相关的深度伪造图片，而ChatGPT Plus(DALL-E 3)和Microsoft的Image Creator成功地拦截了所有与候选人相关的图像。</p>
-
+</p><h1 class="intro__hed1">各平台生成政治深度伪造的测试结果</h1><p class="intro__dek">    鼠标点击成功生成的内容类型可高亮来源</p>
+<!--<iframe scrolling="no" frameborder="0" title="Interactive or visual content" sandbox="allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation" src="https://flo.uri.sh/visualisation/17091221/embed?auto=1" style="width: 100%; height: 763.664px;"></iframe>-->
 
 <iframe
   id="myiframe"
@@ -896,7 +963,11 @@ Chris连续使用了“wreck(毁坏)”、“ havoc(严重破坏)”两个情绪
   width="100%"
   height="750px"
 ></iframe>
-
+<p class="intro__dek">
+	实验结果：<br>
+- 超过一半的指令成功生成了带有误导性的选举图像；<br>
+- Midjourney 的生成成功率最高；<br>
+- ChatGPT Plus（DALL·E 3）与 Microsoft Image Creator 完全拦截了所有相关生成请求。</p>
 <script>
   const iframe = document.getElementById("myiframe");
 
@@ -920,24 +991,30 @@ Chris连续使用了“wreck(毁坏)”、“ havoc(严重破坏)”两个情绪
 
 <p></p>
 <section id="intro">
-<p class="intro__dek">根据各生成器官网显示的服务条款，各平台都禁止生成误导性图片，其中除DreamStudio以外的三个平台都申明了不得使用服务为政治竞选活动生成图像，或试图影响选举结果，而ChatGPT则特别禁止生成包括政治人物在内的公众人物图片。今年2月，Midjourney的CEO霍尔茨也在彭博社采访中提议禁止生成拜登和特朗普等人的照片以应对即将到来的美国总统大选。除此以外，OpenAI等公司也致力于研究AI生成内容的水印技术。在政府方面，虽然没有联邦法律禁止深度伪造，但美国有10个州颁布了将其定为刑事犯罪的法规。
+<p class="intro__dek">
+	根据各生成器官网显示的服务条款，各平台都禁止生成误导性图片，其中除DreamStudio以外的三个平台都申明了不得使用服务为政治竞选活动生成图像，或试图影响选举结果，而ChatGPT则特别禁止生成包括政治人物在内的公众人物图片。今年2月，Midjourney的CEO霍尔茨也在彭博社采访中提议禁止生成拜登和特朗普等人的照片以应对即将到来的美国总统大选。除此以外，OpenAI等公司也致力于研究AI生成内容的水印技术。
+	<br>这说明部分平台已建立有效防伪机制，但整体行业规范仍不完善。<br>
+	在政府方面，目前虽无联邦法律约束，但已有 10 个州将深度伪造纳入刑事处罚范围。
+	
 </p>
 </section>
 
 
 		<section id="four" class="wrapper style3"><div class="inner">
 
-					<header class="align-center"><h2>FUTURE<br>
-						
-							以上，我们可以看到各群体为维护民主进程的完整性而做出的集体性努力。正如美国《时代》周刊所说，“需要解决的问题从来不是人工智能，而是虚假信息”。深度伪造对政治选举的影响仍不可预估，需要更多的管控力来遏制人工智能的潘多拉魔盒。</p>
+					<header class="align-center"><br><br><h1>FUTURE🦾</h1><br>
+						<h2>以上，我们可以看到各群体为维护民主进程的完整性而做出的集体性努力。<br>
+							正如美国《时代》周刊所说，“需要解决的问题从来不是人工智能，而是虚假信息”。<br>
+深度伪造技术不断进化，真假边界愈发模糊。民主社会如何在保障信息自由的同时，筑牢信任屏障？这不仅是技术问题，更是一场社会治理与信息伦理的多方博弈。<br>
+							深度伪造对政治选举的影响仍不可预估，需要更多的管控力来遏制人工智能的潘多拉魔盒。<br><br></p>
 						</h2>
 					</header></div>
-			</section><!-- Footer --><div class="copyright">
+			</section><!-- Footer --><div class="copyright"><br><br>
 				注释：<br>
 				【1】深度伪造信息受众信任行为的影响因素研究 逯前前 天津师范大学<br>
 				【2】数字外交中的深度伪造研究 对外经济贸易大学国际关系学院教授 董青岭<br>
 				网页图片：均来源于网络🛜<br>
-				图表样式：来源于flourish&figma<br>
+				数据来源：见每图脚注<br>
 				<a href="https://">mianchen</a>.
 			</div>
 		</body>
