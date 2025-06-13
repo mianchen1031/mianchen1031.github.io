@@ -8,6 +8,17 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 
+
+<style>
+.contnet-text a {
+  color: #333;           /* 普通态纯黑色 */
+  text-decoration: none;
+}
+.contnet-text a:hover {
+  color: #000000;        /* 悬停时变成其他颜色 */
+  text-decoration: underline; 
+}
+</style>
 <body>
     <div class="logo">
         <span>
@@ -101,7 +112,9 @@
                 draggedElement.style.boxShadow = ''
                 setTimeout(() => {
                     describe.innerHTML = `<div class="tips">${cardInfo[cardStackWrapper.length - 1].tips}</div>
-                                  <div class="contnet-text">${cardInfo[cardStackWrapper.length - 1].contnetText}</div>`
+                                  
+                                   <div class="contnet-text"><a href="${cardInfo[cardStackWrapper.length - 1].link}" target="_blank" rel="noopener">
+                        ${cardInfo[cardStackWrapper.length - 1].contnetText}</a></div>`
                     document.body.style.background = `rgb(${cardInfo[cardStackWrapper.length - 1].bgColor})`
                     cardStackWrapper[cardStackWrapper.length - 1].style.transition = '.5s ease'
                     cardStackWrapper[cardStackWrapper.length - 1].style.transform = 'rotateX(0) rotateY(0) rotateZ(0) scale(1)'
@@ -119,7 +132,9 @@
                 describe.classList.add('describe-disappear-animation')
                 setTimeout(() => {
                     describe.innerHTML = `<div class="tips">${cardInfo[cardStackWrapper.length - 1].tips}</div>
-                                  <div class="contnet-text">${cardInfo[cardStackWrapper.length - 1].contnetText}</div>`
+                                  
+                                <div class="contnet-text"><a href="${cardInfo[cardStackWrapper.length - 1].link}" target="_blank" rel="noopener">
+                        ${cardInfo[cardStackWrapper.length - 1].contnetText}</a></div>`
                     document.body.style.background = `rgb(${cardInfo[cardStackWrapper.length - 1].bgColor})`
                     describe.classList.add('describe-appear-animation')
                     describe.classList.remove('describe-disappear-animation')
@@ -170,7 +185,9 @@
             cardStackWrapper = Array.apply(null, document.querySelectorAll('.card-stack-wrapper'))
             // 设置添加describe的describeDom并设置背景颜色
             describe.innerHTML = `<div class="tips">${cardInfo[cardStackWrapper.length - 1].tips}</div>
-                                  <div class="contnet-text">${cardInfo[cardStackWrapper.length - 1].contnetText}</div>`
+                                 
+                                   <div class="contnet-text"><a href="${cardInfo[cardStackWrapper.length - 1].link}" target="_blank" rel="noopener">
+                        ${cardInfo[cardStackWrapper.length - 1].contnetText}</a></div>`
             document.body.style.background = `rgb(${cardInfo[cardStackWrapper.length - 1].bgColor})`
             // 设置每个card的鼠标按下事件
             cardStackWrapper.forEach(dom => {
