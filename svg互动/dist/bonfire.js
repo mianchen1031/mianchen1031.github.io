@@ -2694,7 +2694,7 @@ let scxjBg = null;
  * @param {*} width 
  * @param {*} height 
  */
-async function init$1(id, url = "./public/桑基图.svg") {
+async function init$1(id, url = "./public/桑基图2.svg") {
     containerId$1 = id;
     const text$1 = await text(url);
     const app = select(`#${containerId$1}`);
