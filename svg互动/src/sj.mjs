@@ -19,7 +19,7 @@ let scxjBg = null;
  * @param {*} width 
  * @param {*} height 
  */
-export async function init(id, url = "./public/桑基图.svg") {
+export async function init(id, url = "./public/桑基图2.svg") {
     containerId = id;
     const text = await d3.text(url);
     const app = d3.select(`#${containerId}`);
